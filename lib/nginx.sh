@@ -18,13 +18,13 @@ function nginx_ins {
 	--with-ipv6 \
 	--with-http_gzip_static_module \
 	--with-http_realip_module \
-	--with-http_v2_module \
-    --with-http_mp4_module \
-    --with-http_flv_module \
-    --with-http_ssl_module \
-    --add-module=/root/nginx_mod_ext/nginx_mod_h264_streaming-2.2.7 \
-    --add-module=/root/nginx_mod_ext/nginx-upload-module-2.2.0 \
-    --add-module=/root/nginx_mod_ext/nginx-upload-progress-module-0.9.2
+	--with-http_spdy_module \
+    	--with-http_mp4_module \
+    	--with-http_flv_module \
+    	--with-http_ssl_module \
+    	--add-module=/root/nginx_mod_ext/nginx_mod_h264_streaming-2.2.7 \
+    	--add-module=/root/nginx_mod_ext/nginx-upload-module-2.2.0 \
+    	--add-module=/root/nginx_mod_ext/nginx-upload-progress-module-0.9.2
     [ $? != 0 ] && err_exit "nginx configure err"
     make -j $CPUS
     [ $? != 0 ] && err_exit "nginx make err"
